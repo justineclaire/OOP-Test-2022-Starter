@@ -100,11 +100,35 @@ public class NematodeVisualiser extends PApplet
 			{
 				line(ellipsex-circSize, ellipsey, ellipsex - circSize/2, ellipsey);
 				line(ellipsex+circSize, ellipsey, ellipsex + circSize/2, ellipsey);
-			}
+			}//end if
 
+			
 			ellipsey += 50;
+		}//end for
+
+		int bottom = ellipsey - circSize/2;
+		if(nem.gender.equals(str('m')) == true)
+		{
+			line(ellipsex, bottom, ellipsex, bottom+30);
+			ellipse(ellipsex, bottom+35, 10, 10);
+		}
+		else if(nem.gender.equals(str('f')) == true)
+		{
+			ellipse(ellipsex, ellipsey-50, circSize/2, circSize/2);
+		}
+		else if(nem.gender.equals(str('h')) == true)
+		{
+			ellipse(ellipsex, ellipsey-50, circSize/2, circSize/2);
+
+			line(ellipsex, bottom, ellipsex, bottom+30);
+			ellipse(ellipsex, bottom+35, 10, 10);
 		}
 
-		
-	}
+
+		if(nem.eyes == true)
+		{
+
+		}
+	
+	}//end draw
 }

@@ -25,8 +25,9 @@ public class Nematode extends NematodeVisualiser {
     public String toString() {
 
             return name+": is "+length+" circles long, and is of gender "+gender;
-       
-    }  
+        }
+        
+    
 
     public Nematode(String name, Integer length, Boolean limbs, String gender, Boolean eyes)
     {
