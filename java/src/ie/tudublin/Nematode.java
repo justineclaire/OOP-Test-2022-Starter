@@ -9,6 +9,7 @@ public class Nematode extends NematodeVisualiser {
     public Boolean limbs;
     public String gender;
     public Boolean eyes;
+    public String likes;
 
     public Nematode(TableRow n) 
     {
@@ -17,7 +18,8 @@ public class Nematode extends NematodeVisualiser {
             n.getInt("length"),
             n.getInt("limbs") == 1,
             n.getString("gender"),
-            n.getInt("eyes") == 1
+            n.getInt("eyes") == 1,
+            n.getString("likes")
        );
          
     }
@@ -46,7 +48,7 @@ public class Nematode extends NematodeVisualiser {
 
         if(limbs)
         {
-            limb = "do";
+            limb = "does";
         }
         else
         {
@@ -55,25 +57,26 @@ public class Nematode extends NematodeVisualiser {
 
         if(eyes)
         {
-            eye = "do";
+            eye = "does";
         }
         else
         {
             eye = "do not";
         }
 
-            return name+", " + length + " circle(s) long, is " + gender + ", "+eye+" have eyes and "+limb+" have limbs\n";
+            return name+", " + length + " circle(s) long, is " + gender + ", "+eye+" have eyes and "+limb+" have limbs. Likes "+likes+"\n";
     }
         
     
 
-    public Nematode(String name, Integer length, Boolean limbs, String gender, Boolean eyes)
+    public Nematode(String name, Integer length, Boolean limbs, String gender, Boolean eyes, String likes)
     {
         this.name = name;
         this.length = length;
         this.limbs = limbs;
         this.gender = gender;
         this.eyes = eyes;
+        this.likes = likes;
     }
     
 }

@@ -92,7 +92,7 @@ public class NematodeVisualiser extends PApplet
 		//variables for nematodes
 		int circSize = 50;
 		int ellipsex = 0;
-		int ellipsey = -60;
+		int ellipsey = -100;
 		
 		//drawing name
 		textAlign(CENTER);
@@ -171,6 +171,7 @@ public class NematodeVisualiser extends PApplet
 			ellipse(ellipsex, bottom+35, 10, 10);
 		}//end genders 
 
-	
+		//displaying the nematodes hobbies as the other cool thing
+		text("Hobby/Interest: "+nem.likes, ellipsex, bottom +75);
 	}//end draw
 }
