@@ -83,19 +83,57 @@ public class NematodeVisualiser extends PApplet
 		line(350, 0, 300, 20);
 		line(350, 0, 300, -20);
 
+		//variables for nematodes
 		int circSize = 50;
-
 		int ellipsex = 0;
-		int ellipsey = -50;
+		int ellipsey = -60;
+		
+		//drawing name
 		textAlign(CENTER);
 		text(nem.name, ellipsex, ellipsey - 100);
+
+		//drawing nematodes
+		strokeWeight(4);
+
+		//pushmatrix to translate() and be able to draw eyes on correct circle
+		pushMatrix();
+		translate(ellipsex, ellipsey);
+		if(nem.eyes == true)
+		{
+			//radius
+			float r = circSize/2;
+
+			//right eye
+			float x = r * cos(-45);
+			float y = r * sin(-45);
+
+			float x2 = circSize * cos(-45);
+			float y2 = circSize * sin(-45);
+			line(x, y, x2, y2);
+
+			noFill();
+			ellipse(x2+5, y2-5, 10, 10);
+
+			//left eye
+			float x3 = r * cos(-90);
+			float y3 = r * sin(-90);
+
+			float x4 = circSize * cos(-90);
+			float y4 = circSize * sin(-90);
+			line(x3, y3, x4, y4);
+
+			ellipse(x4-5, y4-5, 10, 10);
+		}
+		popMatrix();
+
+		//for loop to draw correct number of circles for the nematodes
 		for(int i = 0; i < nem.length; i++)
 		{
 			
-			strokeWeight(4);
 			noFill();
 			ellipse(ellipsex, ellipsey, circSize, circSize);
 
+			//draw limbs
 			if(nem.limbs == true)
 			{
 				line(ellipsex-circSize, ellipsey, ellipsex - circSize/2, ellipsey);
@@ -106,7 +144,10 @@ public class NematodeVisualiser extends PApplet
 			ellipsey += 50;
 		}//end for
 
+		//bottom of nematode
 		int bottom = ellipsey - circSize/2;
+
+		//draw the genders
 		if(nem.gender.equals(str('m')) == true)
 		{
 			line(ellipsex, bottom, ellipsex, bottom+30);
@@ -124,11 +165,6 @@ public class NematodeVisualiser extends PApplet
 			ellipse(ellipsex, bottom+35, 10, 10);
 		}
 
-
-		if(nem.eyes == true)
-		{
-
-		}
 	
 	}//end draw
 }
