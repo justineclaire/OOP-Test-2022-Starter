@@ -75,9 +75,6 @@ public class NematodeVisualiser extends PApplet
 		stroke(col, 255, 255);
 		Nematode nem = nems.get(counter);
 
-		//names
-		textSize(30);
-		//text(nem.name, 0, -200);
 
 		//arrows
 		strokeWeight(10);
@@ -96,6 +93,7 @@ public class NematodeVisualiser extends PApplet
 		
 		//drawing name
 		textAlign(CENTER);
+		textSize(30);
 		text(nem.name, ellipsex, ellipsey - 100);
 
 		//drawing nematodes
