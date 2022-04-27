@@ -1,4 +1,5 @@
 package ie.tudublin;
+
 import processing.data.TableRow;
 
 public class Nematode extends NematodeVisualiser {
@@ -23,9 +24,46 @@ public class Nematode extends NematodeVisualiser {
  
     @Override
     public String toString() {
+        String limb;
+        String eye;
 
-            return name+": is "+length+" circles long, and is of gender "+gender;
+        if(gender.equals(str('m')) == true)
+		{
+			gender = "male";
+		}
+		else if(gender.equals(str('f')) == true)
+		{
+			gender = "female";
+		}
+		else if(gender.equals(str('h')) == true)
+		{
+			gender = "hermaphrodite";
+		}
+        else
+        {
+            gender = "not gendered";
         }
+
+        if(limbs)
+        {
+            limb = "do";
+        }
+        else
+        {
+            limb = "do not";
+        }
+
+        if(eyes)
+        {
+            eye = "do";
+        }
+        else
+        {
+            eye = "do not";
+        }
+
+            return name+", " + length + " circle(s) long, is " + gender + ", "+eye+" have eyes and "+limb+" have limbs\n";
+    }
         
     
 

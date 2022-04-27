@@ -10,6 +10,7 @@ public class NematodeVisualiser extends PApplet
 {
 	
 	Integer counter = 0;
+	Integer colr = counter;
 	public void keyPressed()
 	{		
 		if (keyCode == LEFT)
@@ -28,7 +29,8 @@ public class NematodeVisualiser extends PApplet
 			{
 				counter = 0;
 			}
-		}		
+		}
+			
 	}
 
 
@@ -42,9 +44,11 @@ public class NematodeVisualiser extends PApplet
 		colorMode(HSB);
 		background(0);
 		smooth();	
+		//load nematodes into list
 		loadNematodes();			
 	}
 	
+	//list to store nematodes
 	ArrayList<Nematode> nems = new ArrayList<>();
 	public void loadNematodes()
 	{
@@ -55,6 +59,8 @@ public class NematodeVisualiser extends PApplet
 			Nematode nemat = new Nematode(n);
 			nems.add(nemat);
 		}
+
+		System.out.println(nems);
 	}
 
 
@@ -140,7 +146,7 @@ public class NematodeVisualiser extends PApplet
 				line(ellipsex+circSize, ellipsey, ellipsex + circSize/2, ellipsey);
 			}//end if
 
-			
+			//draw next circle under current
 			ellipsey += 50;
 		}//end for
 
@@ -148,22 +154,22 @@ public class NematodeVisualiser extends PApplet
 		int bottom = ellipsey - circSize/2;
 
 		//draw the genders
-		if(nem.gender.equals(str('m')) == true)
+		if(nem.gender.equals("male") == true)
 		{
 			line(ellipsex, bottom, ellipsex, bottom+30);
 			ellipse(ellipsex, bottom+35, 10, 10);
 		}
-		else if(nem.gender.equals(str('f')) == true)
+		else if(nem.gender.equals("female") == true)
 		{
 			ellipse(ellipsex, ellipsey-50, circSize/2, circSize/2);
 		}
-		else if(nem.gender.equals(str('h')) == true)
+		else if(nem.gender.equals("hermaphrodite") == true)
 		{
 			ellipse(ellipsex, ellipsey-50, circSize/2, circSize/2);
 
 			line(ellipsex, bottom, ellipsex, bottom+30);
 			ellipse(ellipsex, bottom+35, 10, 10);
-		}
+		}//end genders 
 
 	
 	}//end draw
